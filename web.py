@@ -1,19 +1,19 @@
 import streamlit as st
 import functions
 
-# Load existing todos
+# # Load existing todos
 todos = functions.get_todos()
 
 # Debugging: Print the contents of todos to verify
-st.write("Debugging: Contents of todos.txt")
-st.write(todos)
+# st.write("Debugging: Contents of todos.txt")
+# st.write(todos)
 
 # Function to add a new todo
 def add_todo():
     todo = st.session_state["new_todo"] + "\n"
     todos.append(todo)
     functions.write_todos(todos)
-    st.session_state["new_todo"] = ""  # ✅ Safe to reset here
+    # st.session_state["new_todo"] = ""  # ✅ Safe to reset here
 
 # App UI
 st.title("Bonus Web App")
@@ -36,5 +36,5 @@ st.text_input("Add a new todo", placeholder="Enter a new todo", key="new_todo")
 st.button("Add", on_click=add_todo, key="add_button")
 
 # Debugging: Print the session state to verify
-st.write("Debugging: st.session_state")
-st.write(st.session_state)
+# st.write("Debugging: st.session_state")
+# st.write(st.session_state)
